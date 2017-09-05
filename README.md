@@ -28,5 +28,13 @@ digits.
 Deze versie implementeert het Backtracking algoritme. 
 Bij zoekproblemen moet er een oplossing geselecteerd worden uit een heel aantal plausibele mogelijkheden. Tijdens de oplossing van het probleem moet men keuzes maken. Als achteraf blijkt dat een genomen keuze niet leidt tot een oplossing, of niet tot een optimale oplossing, dan moet men terugkeren naar het keuzemoment. Dit terugkeren noemt men backtracking. Ook de oplossingsmethode als geheel (het algoritme) wordt backtracking genoemd. Na het maken van een nieuwe keuze gaat het algoritme verder tot opnieuw moet terugkeren, of een goede oplossing vindt.
 
-
+Puzzle Backtrack(puzzle)
+(x,y) = findSquare(puzzle) //Find square with least candidates
+for i in puzzle[y][x].possibilities() //Loop through possible candidates
+puzzle[y][x] = i //Assign guess
+puzzle’ = Backtrack(puzzle) //Recursion step
+if(isValidAndComplete(puzzle’)) //Check if guess lead to solution
+return puzzle’
+//else continue with the guessing
+return null //No solution was found
 
